@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {TodoForm, TodoList, Footer} from './components/todo/';
-import {addTodo, generateId, findById, toggleTodo, updateTodo, removeTodo} from './components/lib/todoHelpers'
+import {addTodo, generateId, findById, toggleTodo, updateTodo, removeTodo, filterTodos} from './components/lib/todoHelpers'
+import PropTypes from 'prop-types';
 
 class App extends Component {
   state = {
@@ -59,8 +60,13 @@ handleRemove = (id, evt) => {
   this.setState({todos: updatedTodos})
 }
 
+static contextTypes = {
+  route: PropTypes.string
+}
+
   render() {
     const submitHandler = this.state.currentTodo ? this.handleSubmit : this.handleEmptySubmit
+    const displayTodos = filterTodos(this.state.todos, this.context.route)
     return (
       <div className="App">
         <div className="App-header">
@@ -73,7 +79,7 @@ handleRemove = (id, evt) => {
                     currentTodo={this.state.currentTodo}
                     handleSubmit={submitHandler} />
           <TodoList handleToggle={this.handleToggle}
-            todos={this.state.todos}
+            todos={displayTodos}
             handleRemove={this.handleRemove} />
           <Footer />
       </div>
