@@ -15,6 +15,10 @@ class App extends Component {
     currentTodo: ''
   }
 
+  static contextTypes = {
+    route: React.PropTypes.string
+}
+
   constructor() {
     super();
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -58,10 +62,6 @@ handleRemove = (id, evt) => {
   evt.preventDefault()
   const updatedTodos = removeTodo(this.state.todos, id)
   this.setState({todos: updatedTodos})
-}
-
-static contextTypes = {
-  route: PropTypes.string
 }
 
   render() {
