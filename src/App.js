@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import {TodoForm, TodoList, Footer} from './components/todo/';
 import {addTodo, generateId, findById, toggleTodo, updateTodo, removeTodo, filterTodos} from './components/lib/todoHelpers'
-import {loadTodos} from './components/lib/todoService';
+import {loadTodos, createTodo} from './components/lib/todoService';
+import PropTypes from 'prop-types';
 
 class App extends Component {
   state = {
@@ -12,7 +13,7 @@ class App extends Component {
   }
 
   static contextTypes = {
-    route: React.PropTypes.string
+    route: PropTypes.string
 }
 
   componentDidMount() {
@@ -37,6 +38,8 @@ class App extends Component {
       currentTodo: '',
       errorMessage: ''
     })
+    createTodo(newTodo)
+      .then(() => console.log('Todo added'))
   }
 
   handleEmptySubmit(evt) {

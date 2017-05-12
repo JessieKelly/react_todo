@@ -19,6 +19,11 @@
       "id": 4,
       "name": "Setup fetch",
       "isComplete": false
+    },
+    {
+      "id": 28469,
+      "name": "Complete it",
+      "isComplete": false
     }
   ]
 }
