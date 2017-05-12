@@ -45,6 +45,10 @@ li {
   color: red;
 }
 
+.success {
+  color: green;
+}
+
 li span.delete-item {
   visibility: hidden;
 }
