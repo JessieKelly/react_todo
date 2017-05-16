@@ -2,42 +2,42 @@
   "todos": [
     {
       "id": 1,
-      "name": "Setup Server",
+      "name": "HTML5",
       "isComplete": true
     },
     {
       "id": 2,
-      "name": "Start Server",
+      "name": "CSS3",
       "isComplete": true
     },
     {
       "id": 3,
-      "name": "Connect to Server",
-      "isComplete": false
+      "name": "Javascript",
+      "isComplete": true
     },
     {
       "id": 4,
-      "name": "Setup fetch",
-      "isComplete": false
+      "name": "ES6",
+      "isComplete": true
     },
     {
       "id": 28469,
-      "name": "Complete it",
-      "isComplete": false
+      "name": "Jquery",
+      "isComplete": true
     },
     {
       "id": 82733,
-      "name": "New Item",
-      "isComplete": false
+      "name": "Bootstrap",
+      "isComplete": true
     },
     {
       "id": 78551,
-      "name": "Another item",
+      "name": "React",
       "isComplete": false
     },
     {
       "id": 10680,
-      "name": "One more",
+      "name": "Ruby on Rails",
       "isComplete": false
     }
   ]

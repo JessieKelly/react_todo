@@ -92,7 +92,7 @@ handleRemove = (id, evt) => {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>React Todos</h2>
+          <h2> A React Todo App by Jessie Kelly</h2>
         </div>
         <div className="Todo-App">
           {this.state.errorMessage && <span className='error'>{this.state.errorMessage}</span>}
