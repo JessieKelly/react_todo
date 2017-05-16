@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import {TodoForm, TodoList, Footer} from './components/todo/';
 import {addTodo, generateId, findById, toggleTodo, updateTodo, removeTodo, filterTodos} from './components/lib/todoHelpers'
-import {loadTodos, createTodo} from './components/lib/todoService';
+import {loadTodos, createTodo, saveTodo} from './components/lib/todoService';
 import PropTypes from 'prop-types';
 
 class App extends Component {
@@ -60,12 +60,24 @@ class App extends Component {
     })
   }
 
-  handleToggle = (id) => {
-    const todo = findById(id, this.state.todos)
-    const toggled = toggleTodo(todo)
-    const updatedTodos = updateTodo(this.state.todos, toggled)
-    this.setState({todos: updatedTodos})
+
+handleToggle = (id) => {
+  const todo = findById(id, this.state.todos)
+  const getToggledTodo = () => toggleTodo(todo)
+  const updated = getToggledTodo(id, this.state.todos)
+  const getUpdatedTodos = updateTodo(this.state.todos)
+  const updatedTodos = getUpdatedTodos(updated)
+  this.setState({todos: updatedTodos})
+  saveTodo(updated)
+    .then(() => this.showTempMessage('Todo Updated'))
 }
+
+/*handleToggle = (id) => {
+  const todo = findById(id, this.state.todos)
+  const toggled = toggleTodo(todo)
+  const updatedTodos = updateTodo(this.state.todos, toggled)
+  this.setState({todos: updatedTodos})
+}*/
 
 handleRemove = (id, evt) => {
   evt.preventDefault()
